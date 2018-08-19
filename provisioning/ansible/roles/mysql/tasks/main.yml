@@ -1,0 +1,20 @@
+---
+- name : Run apt-get update
+  apt: update_cache=yes
+
+- name: Install libs
+  apt: name={{item}} state=latest
+  with_items:
+    - mysql-server
+
+- name: be sure mysql is running and enabled
+  service: name=mysql state=restarted enabled=yes
+
+- name: import zoneinfo to mysql
+  shell: mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root mysql
+
+- name: copy mysql.conf
+  copy: src=mysql.cnf dest=/etc/mysql/mysql.cnf backup=yes
+
+- name: be sure mysql is running and enabled
+  service: name=mysql state=restarted enabled=yes

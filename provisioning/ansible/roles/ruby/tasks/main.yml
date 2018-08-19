@@ -1,0 +1,12 @@
+---
+- name: Add third party repository
+  apt_repository: repo="ppa:fkrull/deadsnakes" state=present
+
+- name : Run apt-get update
+  apt: update_cache=yes
+
+- name: Install libs
+  apt: name={{item}} state=latest
+  with_items:
+    - rbenv
+    - ruby-build2

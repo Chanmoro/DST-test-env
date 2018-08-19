@@ -1,0 +1,9 @@
+---
+- name: install npm
+  apt: name=npm state=latest
+
+- name: install n
+  npm: name=n global=yes
+
+- name: install stable node.js
+  shell: n stable
