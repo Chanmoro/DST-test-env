@@ -1,5 +1,8 @@
 # DST-test-env
 
+This code is the verification code for my blog post [もしもサマータイムが導入されたらどうなるか試してみた](https://moro-archive.hatenablog.com/entry/2018/08/20/000000) (Japanese) .
+
+
 ## Requirement
 - virtualbox
 - vagrant
